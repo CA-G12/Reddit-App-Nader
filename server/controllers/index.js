@@ -1,3 +1,3 @@
 const addUserRouter = require("./addUserRouter");
-
-module.exports = { addUserRouter };
+const addUserPath = require("./addUserPath");
+module.exports = { addUserRouter,addUserPath };
