@@ -1,6 +1,8 @@
 BEGIN;
 
-DROP TABLE IF EXISTS users,posts,comment CASCADE;
+DROP TABLE IF EXISTS users,
+posts,
+comment CASCADE;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,

@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const { join } = require("path");
 
-const {addUserRouter} = require('../controllers');
+const {addUserRouter,addUserPath} = require('../controllers');
 
 
 
-router.get('/addUser',addUserRouter);
-
+router.post('/addUser',addUserRouter);
+router.get('/addUser',addUserPath);
 
 module.exports = router;
