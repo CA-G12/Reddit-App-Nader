@@ -1,14 +1,18 @@
-const path = require("path");
+const bcrypt = require("bcryptjs");
+
 
 const addUser = require("../database/queries/addUser");
-// console.log(data);
+
 const addUserRouter = (req, res) => {
-    const { username, email, password, imgUrl } = req.body;
-  addUser({ username, email, password, imgUrl })
-  .then((data) =>{
-    console.log(data);
-    res.redirect('/login');
-  }).catch((err) => console.log(err));
+  const { username, email, password, imgUrl } = req.body;
+  bcrypt.hash(password, 10, (err, hash) => {
+    const password = hash;
+    addUser({ username, email, password, imgUrl })
+      .then((data) => {
+        res.redirect("/login");
+      })
+      .catch((err) => console.log(err));
+  });
 };
 
 
