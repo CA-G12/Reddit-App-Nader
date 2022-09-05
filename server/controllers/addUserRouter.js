@@ -13,7 +13,7 @@ const addUserRouter = (req, res) => {
     bcrypt.hash(password, 10, (err, hash) => {
       const password = hash;
       addUser({ username, email, password, imgUrl }).then((data) => {
-        // res.redirect("/login");.
+        console.log(data);
         res.json(data)
       });
     });
