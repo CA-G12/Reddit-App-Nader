@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const getUser = require("../database/queries/getUser");
+const cookieParser = require('cookie-parser');
 
 const getUserRouter = (req, res) => {
   const { email, password } = req.body;
