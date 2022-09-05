@@ -17,39 +17,50 @@
         <a href="/login">Login</a>
       </div>
     </div>
-    <form action="/addUser" method="post" >
+    <form id="form" action="/addUser" method="post">
       <div class="container">
         <h1>Sign Up</h1>
-        <hr>
+        <hr />
         <label for="name"><b>Username</b></label>
         <input
-        type="text"
-        placeholder="Enter Username"
-        name="username"
-        required
+          id="username"
+          type="text"
+          placeholder="Enter Username"
+          name="username"
+          
         />
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required />
+        <input
+          id="email"
+          type="text"
+          placeholder="Enter Email"
+          name="email"
+          
+        />
 
         <label for="psw"><b>Password</b></label>
         <input
+          id="password"
           type="password"
           placeholder="Enter Password"
           name="password"
-          required
+          
         />
         <label for="imgUser"><b>Img Url</b></label>
         <input
+          id="imgUrl"
           type="text"
           placeholder="Enter Img URL"
           name="imgUrl"
-          required
-        />
+  
+        /><br>
+        <div id="span_error"></div>
+        <br>
         <div class="clearfix">
-          <button type="submit" class="signupbtn">Sign Up</button>
+          <button id="submit" type="submit" class="signupbtn">Sign Up</button>
         </div>
       </div>
     </form>
-    <script src="./script/script.js"></script>
+    <script src="../script/singup.js"></script>
   </body>
 </html>
