@@ -10,10 +10,13 @@ const addUserRouter = (req, res) => {
     addUser({ username, email, password, imgUrl })
       .then((data) => {
         res.redirect("/login");
+        // console.log(password);
       })
       .catch((err) => console.log(err));
   });
 };
+
+
 
 
 module.exports = addUserRouter;
