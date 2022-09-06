@@ -5,3 +5,5 @@ const loginpath = (req, res)=>{
 };
 
 module.exports =loginpath;
+
+

@@ -29,10 +29,29 @@ CREATE TABLE comment(
 );
 INSERT INTO users(username,email,password,imgUrl) VALUES ('nader','nader@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
 INSERT INTO users(username,email,password,imgUrl) VALUES ('ahmed','ahmed@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
+INSERT INTO users(username,email,password,imgUrl) VALUES ('nader1','nader1@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
+INSERT INTO users(username,email,password,imgUrl) VALUES ('ahmed1','ahmed1@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
+INSERT INTO users(username,email,password,imgUrl) VALUES ('nader2','nader2@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
+INSERT INTO users(username,email,password,imgUrl) VALUES ('ahmed2','ahmed2@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
+
 
 INSERT INTO posts(title,description,userId) VALUES ('hello','world',1);
 INSERT INTO posts(title,description,userId) VALUES ('hi','dad',2);
+INSERT INTO posts(title,description,userId) VALUES ('hello1','world1',1);
+INSERT INTO posts(title,description,userId) VALUES ('hi','dad',2);
+INSERT INTO posts(title,description,userId) VALUES ('hello2','world2',2);
+INSERT INTO posts(title,description,userId) VALUES ('hi','dad',1);
+INSERT INTO posts(title,description,userId) VALUES ('hello3','world3',2);
+INSERT INTO posts(title,description,userId) VALUES ('hi','dad',1);
 
 INSERT INTO comment(comments,userId,postsId) VALUES ('this is hello world',1,1);
-INSERT INTO comment(comments,userId,postsId) VALUES ('this is hi dad',2,2);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hi dad',1,1);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hello world',2,2);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hi dad',3,2);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hello world',2,2);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hi dad',3,1);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hello world',3,1);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hi dad',2,1);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hello world',1,1);
+INSERT INTO comment(comments,userId,postsId) VALUES ('this is hi dad',1,2);
 COMMIT;

@@ -1,11 +1,10 @@
 const addUserRouter = require("./addUserRouter");
 const addUserPath = require("./addUserPath");
 const loginpath = require("./loginPath");
-const getUserRouter = require("./getUser");
 const homePagePath = require("./homePagePath");
 const getAllPost = require("./getAllPosts");
+const loginVerify = require("./loginValidation");
 
 
 
-
-module.exports = { addUserRouter,addUserPath,loginpath,getUserRouter,homePagePath,getAllPost};
+module.exports = { addUserRouter,addUserPath,loginpath,homePagePath,getAllPost,loginVerify};
