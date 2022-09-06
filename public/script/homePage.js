@@ -48,13 +48,8 @@ function allPosts(res) {
     description.className = "description";
     description.textContent = e.description;
     
-    let commentsDiv = document.createElement("div");
-    let comments = document.createElement("p");
     
-    commentsDiv.className = "commentsDiv";
-    comments.className = "comments";
-    comments.textContent = e.comments;
-    
+
     
     
     imgAndNameDiv.appendChild(imgUrl)
@@ -70,12 +65,23 @@ function allPosts(res) {
     descriptionDiv.appendChild(description);
     allContentPost.appendChild(descriptionDiv);
 
-    commentsDiv.appendChild(comments);
-    allContentPost.appendChild(commentsDiv);
 
     allContentPost.className = "allContentPost";
 
+    e.comments.forEach((c) =>{
+      let commentsDiv = document.createElement("div");
+      let comments = document.createElement("p");
+      
+      commentsDiv.className = "commentsDiv";
+      comments.className = "comments";
 
+        comments.textContent = c.comments;
+
+
+    commentsDiv.appendChild(comments);
+    allContentPost.appendChild(commentsDiv);
+
+      })
 
     container.appendChild(allContentPost);
   });
