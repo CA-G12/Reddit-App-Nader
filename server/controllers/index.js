@@ -4,8 +4,7 @@ const loginpath = require("./loginPath");
 const homePagePath = require("./homePagePath");
 const getAllPost = require("./getAllPosts");
 const loginVerify = require("./loginValidation");
-const isLogin = require("./isLogin");
-
+const logout = require("./logout");
 module.exports = {
   addUserRouter,
   addUserPath,
@@ -13,5 +12,5 @@ module.exports = {
   homePagePath,
   getAllPost,
   loginVerify,
-  isLogin,
+  logout
 };
