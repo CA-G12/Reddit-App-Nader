@@ -23,7 +23,6 @@ form.addEventListener("submit", (e) => {
     .then((data) => data.json())
     .then((res) => {
       if (res.msg) {
-        console.log(res);
         let spanText = document.createElement("span");
         spanText.className = "errorText";
         spanText.textContent = res.msg;

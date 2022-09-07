@@ -1,18 +1,19 @@
+require("env2")(".env");
 const jwt = require("jsonwebtoken");
 
-require("dotenv").config();
 
 const isLogin = (req, res, next) => {
-  if (!req.cookies["dataUser"]) {
+  if (!req.cookies["dataLogin"]) {
     res.redirect("/login");
   } else {
     jwt.verify(
-      req.cookies["dataUser"],
+      req.cookies["dataLogin"],
       process.env.SECRET_KEY,
       (err, decode) => {
         res.sendStatus(401);
         if (err) {
         } else {
+          res.send(decode)
           next();
         }
       }

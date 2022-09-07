@@ -1,9 +1,11 @@
-require("dotenv").config();
+require("env2")(".env");
 const bcrypt = require("bcryptjs");
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
+
 const loginValdation = require("../database/queries/loginValidation");
 
+// console.log(process.env.SECRET_KEY);
 const loginVerify = (req, res) => {
   const passSchema = Joi.object({
     email: Joi.string().email().required(),
@@ -28,7 +30,8 @@ const loginVerify = (req, res) => {
             if (!data) {
               res.send({ msg: "wrong password" });
             } else {
-              jwt.sign(login),
+              jwt.sign(
+                login,
                 process.env.SECRET_KEY,
                 { algorithm: "HS256" },
                 (error, encodedData) => {
@@ -39,7 +42,8 @@ const loginVerify = (req, res) => {
                       .cookie("dataLogin", encodedData)
                       .send({ sucss: "success" });
                   }
-                };
+                }
+              );
             }
           }
         });
