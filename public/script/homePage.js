@@ -7,9 +7,11 @@ fetch("/posts")
 
 let container = document.querySelector("#container");
 
-{/* <div class="header-right">
+{
+  /* <div class="header-right">
 <a class="active" href="/login">Logout</a>
-</div> */}
+</div> */
+}
 function allPosts(res) {
   res.forEach((e) => {
     let allContentPost = document.createElement("div");
@@ -19,15 +21,15 @@ function allPosts(res) {
     let imgUrl = document.createElement("img");
     let butnDeletDiv = document.createElement("div");
     let butnDelet = document.createElement("button");
-    butnDeletDiv.className="header-right"
+    butnDeletDiv.className = "header-right";
     butnDelet.className = "button-9";
     butnDelet.textContent = "delete";
-    imgAndNameDiv.className="imgAndNameDiv";
+    imgAndNameDiv.className = "imgAndNameDiv";
 
-      butnDeletDiv.addEventListener("click", function() {
-        console.log(e.email);
-      })
-    imgUrl.src = e.imgurl
+    butnDeletDiv.addEventListener("click", function () {
+      console.log(e.email);
+    });
+    imgUrl.src = e.imgurl;
     userName.textContent = e.username;
     userNameDiv.className = "userNameDiv";
     userName.className = "userName";
@@ -40,61 +42,41 @@ function allPosts(res) {
     title.className = "title";
     titleDiv.textContent = e.title;
 
-
     let descriptionDiv = document.createElement("div");
     let description = document.createElement("p");
-    
+
     descriptionDiv.className = "descriptionDiv";
     description.className = "description";
     description.textContent = e.description;
-    
-    
 
-    
-    
-    imgAndNameDiv.appendChild(imgUrl)
+    imgAndNameDiv.appendChild(imgUrl);
     imgAndNameDiv.appendChild(userName);
     userNameDiv.appendChild(imgAndNameDiv);
     allContentPost.appendChild(userNameDiv);
     butnDeletDiv.appendChild(butnDelet);
     imgAndNameDiv.appendChild(butnDeletDiv);
-    
+
     titleDiv.appendChild(title);
     allContentPost.appendChild(titleDiv);
 
     descriptionDiv.appendChild(description);
     allContentPost.appendChild(descriptionDiv);
 
-
     allContentPost.className = "allContentPost";
 
-    e.comments.forEach((c) =>{
+    e.comments.forEach((c) => {
       let commentsDiv = document.createElement("div");
       let comments = document.createElement("p");
-      
+
       commentsDiv.className = "commentsDiv";
       comments.className = "comments";
 
-        comments.textContent = c.comments;
+      comments.textContent = c.comments;
 
-
-    commentsDiv.appendChild(comments);
-    allContentPost.appendChild(commentsDiv);
-
-      })
+      commentsDiv.appendChild(comments);
+      allContentPost.appendChild(commentsDiv);
+    });
 
     container.appendChild(allContentPost);
   });
 }
-
-// username: "ahmed"
-// title: "hi"
-// description: "dad"
-//   commentid: 2
-// comments: "this is hi dad"
-// email: "ahmed@gmail.com"
-// id: 2
-// imgurl: "https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png"
-// password: "123456"
-// postsid: 2
-// userid: 2

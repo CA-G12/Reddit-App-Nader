@@ -78,6 +78,9 @@ body {
     clear: both;
     display: table;
   }
+  #errorMsg{
+    color: red;
+  }
   
   /* Change styles for cancel button and signup button on extra small screens */
   @media screen and (max-width: 300px) {
