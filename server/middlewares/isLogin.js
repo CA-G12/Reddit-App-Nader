@@ -13,7 +13,6 @@ const isLogin = (req, res, next) => {
         res.sendStatus(401);
         if (err) {
         } else {
-          res.send(decode)
           next();
         }
       }
