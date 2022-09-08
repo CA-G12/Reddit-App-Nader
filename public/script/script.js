@@ -44,12 +44,14 @@ function showUpAllPosts(res) {
     container.appendChild(allPostsDiv);
 
 // comments 
-let num = 3;
     e.comments.forEach((comment,num) => {
       let commentDiv = document.createElement("div");
       let commentTitle = document.createElement("p");
-
-      commentTitle.textContent = comment.comments;
+      if (e.comments[0] === null) {
+        commentTitle.textContent = comment.comments;
+      }else{
+        commentTitle.textContent = "No comments";
+      }
       commentDiv.className = "commentDiv";
       commentTitle.className = "commentTitle";
       commentDiv.appendChild(commentTitle);

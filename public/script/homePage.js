@@ -7,11 +7,6 @@ fetch("/posts")
 
 let container = document.querySelector("#container");
 
-{
-  /* <div class="header-right">
-<a class="active" href="/login">Logout</a>
-</div> */
-}
 function allPosts(res) {
   res.forEach((e) => {
     let allContentPost = document.createElement("div");
@@ -21,14 +16,12 @@ function allPosts(res) {
     let imgUrl = document.createElement("img");
     let butnDeletDiv = document.createElement("div");
     let butnDelet = document.createElement("button");
+    butnDelet.id = "butnDelet";
     butnDeletDiv.className = "header-right";
     butnDelet.className = "button-9";
     butnDelet.textContent = "delete";
     imgAndNameDiv.className = "imgAndNameDiv";
 
-    butnDeletDiv.addEventListener("click", function () {
-      console.log(e.email);
-    });
     imgUrl.src = e.imgurl;
     userName.textContent = e.username;
     userNameDiv.className = "userNameDiv";
@@ -64,19 +57,39 @@ function allPosts(res) {
 
     allContentPost.className = "allContentPost";
 
-    e.comments.forEach((c) => {
+    if (e.comments[0] === null) {
       let commentsDiv = document.createElement("div");
-      let comments = document.createElement("p");
-
-      commentsDiv.className = "commentsDiv";
-      comments.className = "comments";
-
-      comments.textContent = c.comments;
-
-      commentsDiv.appendChild(comments);
+      commentsDiv.textContent = "no comments";
       allContentPost.appendChild(commentsDiv);
-    });
+    } else {
+      e.comments.forEach((c) => {
+        let commentsDiv = document.createElement("div");
+        let comments = document.createElement("p");
+
+        commentsDiv.className = "commentsDiv";
+        comments.className = "comments";
+
+        comments.textContent = c.comments;
+
+        commentsDiv.appendChild(comments);
+        allContentPost.appendChild(commentsDiv);
+      });
+    }
 
     container.appendChild(allContentPost);
+    // const butnDelet = document.querySelector('.button-9');
+
+    butnDelet.addEventListener("click", () => {
+      // console.log(e.postsid);
+      fetch("/posts", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          postId: e.postsid,
+        }),
+      }).then((data) => data.json());
+    });
   });
 }

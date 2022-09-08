@@ -8,6 +8,7 @@ const verifyToken = (req, res, next) => {
         res.redirect("/login");
       } else {
         req.user = decode;
+        // console.log(req.user);
         next();
       }
     });
