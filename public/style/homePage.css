@@ -79,6 +79,13 @@ padding: 10px;
   touch-action: manipulation;
   width: 100%;
 }
+.titleDiv{
+    margin: 10px;
+}
+
+.descriptionDiv{
+    margin: 10px;
+}
 
 .button-9:disabled {
   cursor: default;
@@ -87,3 +94,40 @@ padding: 10px;
 .button-9:focus {
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
 }
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button[type=submit] {
+
+    width: 50%;
+    background-color: dodgerblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 2px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type=submit]:hover {
+    background-color: dodgerblue;
+  }
+  
+  div {
+    border-radius: 5px;
+  }
+
+  .clearfix{
+    display: flex;
+    justify-content:center;
+    justify-items: center;
+  }
