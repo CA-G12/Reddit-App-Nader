@@ -5,6 +5,7 @@ const homePagePath = require("./homePagePath");
 const getAllPost = require("./getAllPosts");
 const loginVerify = require("./loginValidation");
 const logout = require("./logout");
+const addPostsRouter = require("./addPostsRouter");
 module.exports = {
   addUserRouter,
   addUserPath,
@@ -12,5 +13,6 @@ module.exports = {
   homePagePath,
   getAllPost,
   loginVerify,
-  logout
+  logout,
+  addPostsRouter
 };
