@@ -1,54 +1,52 @@
-body{
-    background-color: #DAE0E6;
+body {
+  background-color: #dae0e6;
 }
 
-.allContentPost{
-    border-radius: 20px;
-    margin: 15px;
-    background-color: white;
+.allContentPost {
+  border-radius: 20px;
+  margin: 15px;
+  background-color: white;
 }
-.imgAndNameDiv{
-    display: flex;
-    border-radius: 20px;
-    background-color: #DAE0E6;
+.imgAndNameDiv {
+  display: flex;
+  border-radius: 20px;
+  background-color: #dae0e6;
 }
-.userNameDiv{
-    font-size: 18px;
-    padding: 5px;
+.userNameDiv {
+  font-size: 18px;
+  padding: 5px;
 }
-.imgUrl{
-    border-radius: 50%;
-    margin: 10px;
-    width: 50px;
-    height: 50px;
+.imgUrl {
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
 }
-.userName{
-padding: 10px;
+.userName {
+  padding: 10px;
 }
-.titleDiv{
-    padding-left: 20px;
-    margin: 12px;
-
+.titleDiv {
+  padding-left: 20px;
+  margin: 12px;
 }
-.title{
+.title {
 }
-.descriptionDiv{
-    padding-left: 20px;
-    display: flex;
-    flex-wrap: wrap;
+.descriptionDiv {
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
-.description{
-
+.description {
 }
-.commentsDiv{
-    margin: 12px;
-    padding: 10px;
-    padding-left: 20px;
-    border-style: groove;
-    border-radius: 20px;
+.commentsDiv {
+  margin: 12px;
+  padding: 10px;
+  padding-left: 20px;
+  border-style: groove;
+  border-radius: 20px;
 }
-.comments{
-    font-size: 10px;
+.comments {
+  font-size: 10px;
 }
 
 .button-9 {
@@ -57,11 +55,13 @@ padding: 10px;
   background-color: dodgerblue;
   border-radius: 6px;
   border-width: 0;
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    Ubuntu, sans-serif;
   font-size: 100%;
   height: 44px;
   line-height: 1.15;
@@ -73,18 +73,18 @@ padding: 10px;
   text-align: center;
   text-transform: none;
   transform: translateZ(0);
-  transition: all .2s,box-shadow .08s ease-in;
+  transition: all 0.2s, box-shadow 0.08s ease-in;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 100%;
 }
-.titleDiv{
-    margin: 10px;
+.titleDiv {
+  margin: 10px;
 }
 
-.descriptionDiv{
-    margin: 10px;
+.descriptionDiv {
+  margin: 10px;
 }
 
 .button-9:disabled {
@@ -92,42 +92,60 @@ padding: 10px;
 }
 
 .button-9:focus {
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+    rgba(50, 151, 211, 0.3) 0 0 0 4px;
 }
 
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 2px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 2px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  button[type=submit] {
+button[type="submit"] {
+  width: 50%;
+  background-color: dodgerblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 2px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    width: 50%;
-    background-color: dodgerblue;
-    color: white;
-    padding: 14px 20px;
-    margin: 2px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type=submit]:hover {
-    background-color: dodgerblue;
-  }
-  
-  div {
-    border-radius: 5px;
-  }
+button[type="submit"]:hover {
+  background-color: dodgerblue;
+}
 
-  .clearfix{
-    display: flex;
-    justify-content:center;
-    justify-items: center;
-  }
+div {
+  border-radius: 5px;
+}
+
+.clearfix {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.userDiv{
+  display: flex;
+  background-color: white;
+  padding-left: 20px;
+}
+#nameUser {
+  padding: 20px;
+}
+#imgUser{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 10px;
+}
+.commentsDivNo{
+text-align: center;
+}
