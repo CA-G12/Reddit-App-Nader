@@ -16,39 +16,46 @@ const loginVerify = (req, res) => {
   });
 
   const someThink = passSchema.validate(req.body);
-  if (someThink.error) {
+  if (someThink.error || !someThink) {
     res.send({ msg: someThink.error.details[0].message });
   } else {
     const loginPassword = req.body["password"];
-    loginValdation(req.body).then((data) => {
-      if (data.rows.length > 0) {
-        const login = data.rows[0];
-        bcrypt.compare(loginPassword, login.password, (error, data) => {
-          if (error) {
-            res.send({ msg: 500 });
-          } else {
-            if (!data) {
-              res.send({ msg: "wrong password" });
+    loginValdation(req.body)
+      .then((data) => {
+        if (data.rows.length > 0) {
+          const login = data.rows[0];
+          bcrypt.compare(loginPassword, login.password, (error, result) => {
+            if (error) {
+              res.send({ msg: 500 });
             } else {
-              jwt.sign(
-                login,
-                process.env.SECRET_KEY,
-                { algorithm: "HS256" },
-                (error, encodedData) => {
-                  if (error) {
-                    res.send({ msg: 500 });
-                  } else {
-                    res
-                      .cookie("dataLogin", encodedData)
-                      .send({ sucss: "success" });
+              if (!result) {
+                res.send({ msg: "wrong password" });
+              } else {
+                jwt.sign(
+                  login,
+                  process.env.SECRET_KEY,
+                  { algorithm: "HS256" },
+                  (error, encodedData) => {
+                    if (error) {
+                      res.send({ msg: 500 });
+                    } else {
+                      res.cookie("userName", data.rows[0].username);
+                      res.cookie("userImgUrl", data.rows[0].imgurl);
+                      res
+                        .cookie("dataLogin", encodedData)
+                        .send({ sucss: "success" });
+                    }
                   }
-                }
-              );
+                );
+              }
             }
-          }
-        });
-      }
-    });
+          });
+        }else{
+          console.log("Error");
+          res.send({ msg: "wrong Email" });
+        }
+      })
+      .catch((error) => console.log(error));
   }
 };
 
