@@ -96,8 +96,8 @@ function allPosts(res) {
         allContentPost.appendChild(commentsDiv);
         let userIdBtn = getCookie("userId");
         deleteBnt.addEventListener("click",()=>{
-          console.log(c.commentid);
-          console.log(userIdBtn);
+          // console.log(c.commentid);
+          // console.log(userIdBtn);
           fetch("/deleteComment",{
             method : "post",
             headers : {"Content-Type": "application/json"},
