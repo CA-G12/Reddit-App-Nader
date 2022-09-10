@@ -82,21 +82,43 @@ function allPosts(res) {
       e.comments.forEach((c) => {
         let commentsDiv = document.createElement("div");
         let comments = document.createElement("p");
+        let deleteBnt = document.createElement("button");
+        let deleteBntIcon = document.createElement("i");
 
         commentsDiv.className = "commentsDiv";
         comments.className = "comments";
+        deleteBntIcon.className = "fa fa-trash deleteBntIcon";
 
         comments.textContent = c.comments;
-
         commentsDiv.appendChild(comments);
+        deleteBnt.appendChild(deleteBntIcon);
+        commentsDiv.appendChild(deleteBnt);
         allContentPost.appendChild(commentsDiv);
+        let userIdBtn = getCookie("userId");
+        deleteBnt.addEventListener("click",()=>{
+          console.log(c.commentid);
+          console.log(userIdBtn);
+          fetch("/deleteComment",{
+            method : "post",
+            headers : {"Content-Type": "application/json"},
+            body : JSON.stringify({
+              commentId : c.commentid,
+              userId : Number(userIdBtn)
+            })
+          }).then((data)=>{
+            data.json();
+          }).then((data)=>{
+            location.reload();
+          })
+        })
+
+
       });
     }
 
-    // const butnDelet = document.querySelector('.button-9');
+
 
     butnDelet.addEventListener("click", () => {
-      // console.log(e.postsid);
       fetch("/posts", {
         method: "post",
         headers: {
@@ -113,27 +135,25 @@ function allPosts(res) {
     });
 
     let userId = getCookie("userId");
-    console.log(userId);
-    btnAddCommints.addEventListener("click",() =>{
-      fetch("/addComment",{
+    btnAddCommints.addEventListener("click", () => {
+      fetch("/addComment", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          comments : addCommints.value,
-          postsId : e.postsid,
-          userId : Number(userId),
-        })
-      }).then((data) => data.json()).then((data) => {
-        location.reload();
+          comments: addCommints.value,
+          postsId: e.postsid,
+          userId: Number(userId),
+        }),
       })
-    })
+        .then((data) => data.json())
+        .then((data) => {
+          location.reload();
+        });
+    });
 
     container.appendChild(allContentPost);
-
-
-
   });
 }
 
@@ -155,9 +175,6 @@ function getCookie(name) {
   return null;
 }
 
-
-
 // let x = document.cookie;
-
 
 // console.log(x);

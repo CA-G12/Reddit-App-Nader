@@ -8,6 +8,7 @@ const logout = require("./logout");
 const addPostsRouter = require("./addPostsRouter");
 const addCommentRouter = require("./addCommentRouter");
 const deletePostsRouter = require("./deletePostsRouter");
+const deleteCommentRouter = require("./deleteCommentRouter");
 module.exports = {
   addUserRouter,
   addUserPath,
@@ -18,5 +19,6 @@ module.exports = {
   logout,
   addPostsRouter,
   deletePostsRouter,
-  addCommentRouter
+  addCommentRouter,
+  deleteCommentRouter
 };
