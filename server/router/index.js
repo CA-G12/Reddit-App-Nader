@@ -10,7 +10,8 @@ const {
   logout,
   addPostsRouter,
   deletePostsRouter,
-  addCommentRouter
+  addCommentRouter,
+  deleteCommentRouter
 } = require("../controllers");
 
 const verifyToken = require("../middlewares/verifyToken");
@@ -26,5 +27,5 @@ router.post("/homePage", verifyToken, addPostsRouter);
 router.get("/posts", getAllPost);
 router.post("/posts", verifyToken,deletePostsRouter);
 router.post("/addComment",addCommentRouter);
-
+router.post("/deleteComment", deleteCommentRouter);
 module.exports = router;

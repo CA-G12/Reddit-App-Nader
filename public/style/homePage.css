@@ -39,12 +39,18 @@ body {
 .description {
 }
 .commentsDiv {
+  display: flex;
   margin: 12px;
   padding: 10px;
   padding-left: 20px;
   border-style: groove;
   border-radius: 20px;
 }
+.deleteBntIcon{
+  margin: 10px;
+  font-size: 20px;
+}
+
 .comments {
   font-size: 10px;
 }
