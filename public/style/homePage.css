@@ -149,3 +149,9 @@ div {
 .commentsDivNo{
 text-align: center;
 }
+
+.addCommintsDivBtn{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
