@@ -25,7 +25,7 @@ CREATE TABLE comment(
     comments TEXT NOT NULL,
     userId INTEGER NOT NULL,
     postsId INTEGER NOT NULL,
-    FOREIGN KEY (postsId) REFERENCES posts(postsId)
+    FOREIGN KEY (postsId) REFERENCES posts(postsId) ON DELETE CASCADE
 );
 -- INSERT INTO users(username,email,password,imgUrl) VALUES ('nader','nader@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
 -- INSERT INTO users(username,email,password,imgUrl) VALUES ('ahmed','ahmed@gmail.com','123456','https://gogeticon.net/files/2174098/f4ceeae0ea3cf566ddf604e2de4a85cd.png');
