@@ -3,7 +3,6 @@ fetch("/posts")
   .then((res) => {
     allPosts(res);
   });
-
 let container = document.querySelector("#container");
 
 function allPosts(res) {
@@ -56,6 +55,24 @@ function allPosts(res) {
 
     allContentPost.className = "allContentPost";
 
+    let addCommintsDiv = document.createElement("div");
+    let addCommintsDivBtn = document.createElement("div");
+    let addCommints = document.createElement("input");
+    let btnAddCommints = document.createElement("button");
+
+    addCommintsDiv.className = "addCommintsDiv";
+    addCommints.type = "text";
+    addCommints.placeholder = "Add Comment";
+    btnAddCommints.type = "submit";
+    btnAddCommints.textContent = "Add Comment";
+
+    addCommintsDivBtn.className = "addCommintsDivBtn";
+    addCommintsDiv.appendChild(addCommints);
+    addCommintsDivBtn.appendChild(btnAddCommints);
+
+    allContentPost.appendChild(addCommintsDiv);
+    allContentPost.appendChild(addCommintsDivBtn);
+
     if (e.comments[0] === null) {
       let commentsDivNo = document.createElement("div");
       commentsDivNo.className = "commentsDivNo";
@@ -76,7 +93,6 @@ function allPosts(res) {
       });
     }
 
-    container.appendChild(allContentPost);
     // const butnDelet = document.querySelector('.button-9');
 
     butnDelet.addEventListener("click", () => {
@@ -95,6 +111,29 @@ function allPosts(res) {
           location.reload();
         });
     });
+
+    let userId = getCookie("userId");
+    console.log(userId);
+    btnAddCommints.addEventListener("click",() =>{
+      fetch("/addComment",{
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          comments : addCommints.value,
+          postsId : e.postsid,
+          userId : Number(userId),
+        })
+      }).then((data) => data.json()).then((data) => {
+        location.reload();
+      })
+    })
+
+    container.appendChild(allContentPost);
+
+
+
   });
 }
 
@@ -103,15 +142,22 @@ let userNameC = getCookie("userName");
 
 let nameUser = document.querySelector("#nameUser");
 
-nameUser.textContent = "User Name : "+userNameC;
+nameUser.textContent = "User Name : " + userNameC;
 
 function getCookie(name) {
   var nameEQ = name + "=";
-  var ca = document.cookie.split(';');
-  for(var i=0;i < ca.length;i++) {
-      var c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1,c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  var ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == " ") c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
   }
   return null;
 }
+
+
+
+// let x = document.cookie;
+
+
+// console.log(x);

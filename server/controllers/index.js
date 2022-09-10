@@ -6,7 +6,7 @@ const getAllPost = require("./getAllPosts");
 const loginVerify = require("./loginValidation");
 const logout = require("./logout");
 const addPostsRouter = require("./addPostsRouter");
-
+const addCommentRouter = require("./addCommentRouter");
 const deletePostsRouter = require("./deletePostsRouter");
 module.exports = {
   addUserRouter,
@@ -18,4 +18,5 @@ module.exports = {
   logout,
   addPostsRouter,
   deletePostsRouter,
+  addCommentRouter
 };

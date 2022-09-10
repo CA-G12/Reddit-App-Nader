@@ -39,8 +39,8 @@ const loginVerify = (req, res) => {
                     if (error) {
                       res.send({ msg: 500 });
                     } else {
+                      res.cookie("userId", data.rows[0].id);
                       res.cookie("userName", data.rows[0].username);
-                      res.cookie("userImgUrl", data.rows[0].imgurl);
                       res
                         .cookie("dataLogin", encodedData)
                         .send({ sucss: "success" });
