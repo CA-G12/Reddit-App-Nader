@@ -44,11 +44,11 @@ function showUpAllPosts(res) {
     container.appendChild(allPostsDiv);
 
 // comments 
-    e.comments.forEach((comment,num) => {
+    e.comments.forEach((c) => {
       let commentDiv = document.createElement("div");
       let commentTitle = document.createElement("p");
-      if (e.comments[0] === null) {
-        commentTitle.textContent = comment.comments;
+      if (e.comments[0] !== null) {
+        commentTitle.textContent = c.comments;
       }else{
         commentTitle.textContent = "No comments";
       }
@@ -57,6 +57,7 @@ function showUpAllPosts(res) {
       commentDiv.appendChild(commentTitle);
       commentsDiv.appendChild(commentDiv);
     });
+    
     
   });
 }
